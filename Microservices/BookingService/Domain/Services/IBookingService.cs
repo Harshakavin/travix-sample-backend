@@ -6,6 +6,6 @@ namespace TravixBackend.BookingService.Domain.Services
 {
     public interface IBookingService
     {
-        Task<List<BookingDto>> GetBookingAsync(string userId);
+        Task<List<BookingDto>> GetBookingAsync(string username,int limit);
     }
 }

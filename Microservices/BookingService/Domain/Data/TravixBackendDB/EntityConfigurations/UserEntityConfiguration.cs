@@ -4,14 +4,15 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace TravixBackend.BookingService.Domain.Data.EntityConfigurations
 {
-    public class BookingEntityConfiguration : IEntityTypeConfiguration<Booking>
+    public class UserEntityConfiguration : IEntityTypeConfiguration<User>
     {
-        public void Configure(EntityTypeBuilder<Booking> builder)
+        public void Configure(EntityTypeBuilder<User> builder)
         {
-            builder.ToTable("bookings");
+            builder.ToTable("user");
             builder.Property(p => p.Id).ValueGeneratedOnAdd();
             builder.Property(p => p.Id).HasColumnName("id");
-            builder.Property(p => p.Name).HasColumnName("name");
+            builder.Property(p => p.UserName).HasColumnName("username");
+            builder.Property(p => p.Password).HasColumnName("password");
             builder.Property(b => b.CreatedDate).HasColumnName("created_date");
             builder.HasKey(b => b.Id);
         }

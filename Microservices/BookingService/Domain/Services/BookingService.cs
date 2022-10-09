@@ -18,8 +18,13 @@ namespace TravixBackend.BookingService.Domain.Services
             _travixBackendDBContext = (TravixBackendDBContext)provider.GetService(typeof(TravixBackendDBContext));
         }
 
-        public async Task<List<BookingDto>> GetBookingAsync(string userId)
+        public async Task<List<BookingDto>> GetBookingAsync(string username, int limit)
         {
+            if(username == null)
+            {
+                throw new UnauthorizedAccessException();
+            }
+
             throw new InvalidCastException();
         }
     }

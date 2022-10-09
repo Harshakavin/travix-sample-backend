@@ -28,6 +28,20 @@ namespace TravixBackend.API.ExceptionFilters
                         }
                     });
                 }
+
+                if (ex.StatusCode == StatusCode.Unauthenticated)
+                {
+                    Log.ForContext<RpcExceptionFilterAttribute>().Error($"Unauthenticated user request {context.HttpContext.Request.Path}", ex);
+
+                    context.Result = new BadRequestObjectResult(new ErrorResponse
+                    {
+                        Code = exceptionType,
+                        Message = new ErrorResponse.ErrorMessage()
+                        {
+                            En = "Unauthenticated user request",
+                        }
+                    });
+                }
             }
         }
     }

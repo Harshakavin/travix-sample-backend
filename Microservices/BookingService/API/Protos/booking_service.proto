@@ -13,7 +13,7 @@ service BookingGrpcService {
 }
 
 message BookingRequest {
-    google.protobuf.StringValue userId = 1;
+    google.protobuf.Int32Value limit = 1;
 }
 
 message BookingResponse {

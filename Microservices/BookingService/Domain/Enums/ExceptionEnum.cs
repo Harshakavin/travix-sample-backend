@@ -5,7 +5,8 @@
         public enum ExceptionList
         {
             INTERNAL_ERROR,
-            INVALID_REQUEST
+            INVALID_REQUEST,
+            UNAUTHORIZE_REQUEST
         }
     }
 }

@@ -14,6 +14,10 @@ namespace TravixBackend.BookingService.Domain
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<User>().HasData(new User[] {
+                new User{UserName="admin",Password="d033e22ae348aeb5660fc2140aec35850c4da997"}
+            });
+
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(GetType().Assembly);
         }

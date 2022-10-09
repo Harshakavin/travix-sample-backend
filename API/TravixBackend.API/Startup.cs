@@ -10,6 +10,7 @@ using Newtonsoft.Json.Serialization;
 using System;
 using TravixBackend.API.Extensions;
 using TravixBackend.API.Mappers;
+using TravixBackend.API.Middleware;
 
 namespace TravixBackend.API
 {
@@ -68,6 +69,7 @@ namespace TravixBackend.API
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseMiddleware(typeof(UserMiddleware));
 
             app.UseHttpsRedirection();
 
@@ -82,11 +84,6 @@ namespace TravixBackend.API
             {
                 c.SwaggerEndpoint(Configuration["Swagger:SwaggerEndpoint"],
                     $"{Configuration["Swagger:Title"]} {Configuration["Swagger:Version"]}");
-            });
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
             });
 
             app.UseEndpoints(endpoints =>
