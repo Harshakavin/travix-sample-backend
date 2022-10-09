@@ -15,6 +15,8 @@ namespace TravixBackend.BookingService.Domain.Dtos
         public string Group { get; set; }
         public string Status { get; set; }
         public string ArrivalTime { get; set; }
+        public string Cost { get; set; }
+        public string Date { get; set; }
         public string CreatedDate { get; set; }
         public string UpdatedDate { get; set; }
     }

@@ -14,7 +14,7 @@ namespace TravixBackend.API.Extensions
                 var bookingServiceUrl = configuration["GrpcConfig:BookingService"];
                 var serviceIp = $"http://{bookingServiceUrl}";
                 options.Address = new Uri(serviceIp);
-            });
+            }).AddHeaderPropagation();
 
             return services;
         }

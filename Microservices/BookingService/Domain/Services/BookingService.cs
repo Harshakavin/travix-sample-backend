@@ -47,6 +47,8 @@ namespace TravixBackend.BookingService.Domain.Services
                 Status = b.Status,
                 To = b.To,
                 Way = b.Way,
+                Cost = b.Cost,
+                Date = b.Date,
                 UpdatedDate = b.UpdatedDate.ToShortDateString(),
                 CreatedDate = b.CreatedDate.ToShortDateString()
             }));
@@ -64,7 +66,6 @@ namespace TravixBackend.BookingService.Domain.Services
 
             await _travixBackendDBContext.Bookings.AddAsync(new Booking
             {
-                Id = booking.Id,
                 UserId = user.Id,
                 Name = booking.Name,
                 FlightCode = booking.FlightCode,
@@ -76,7 +77,9 @@ namespace TravixBackend.BookingService.Domain.Services
                 Seat = booking.Seat,
                 Status = booking.Status,
                 To = booking.To,
-                Way = booking.Way
+                Way = booking.Way,
+                Cost = booking.Cost,
+                Date = booking.Date,
             });
             _travixBackendDBContext.SaveChanges();
 

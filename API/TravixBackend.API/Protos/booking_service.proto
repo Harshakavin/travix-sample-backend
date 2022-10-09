@@ -31,9 +31,12 @@ message BookingRequest {
     google.protobuf.StringValue seat = 8;
     google.protobuf.StringValue way = 9;
     google.protobuf.StringValue group = 10;
-    google.protobuf.BoolValue   status = 11;
+    google.protobuf.StringValue status = 11;
     google.protobuf.StringValue arrivalTime = 12;
-    google.protobuf.Timestamp   updatedDate = 13;
-    google.protobuf.Timestamp   createdDate = 14;
+    google.protobuf.StringValue updatedDate = 13;
+    google.protobuf.StringValue createdDate = 14;
+    google.protobuf.Int64Value id =15;
+    google.protobuf.StringValue date = 16;
+    google.protobuf.StringValue cost = 17;
 }
 

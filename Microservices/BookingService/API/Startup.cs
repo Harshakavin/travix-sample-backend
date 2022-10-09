@@ -7,9 +7,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
 using Serilog;
+using Microsoft.AspNetCore.HeaderPropagation;
+using Microsoft.AspNetCore.Builder;
 using TravixBackend.BookingService.API.Mappers;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Scrutor;
 
@@ -34,6 +35,7 @@ namespace TravixBackend.BookingService.API
 
             //Plugging automapper
             services.AddAutoMapper(typeof(Startup).Assembly, typeof(BookingMapper).Assembly);
+            services.AddHeaderPropagation(config => config.Headers.Add(Constants.HEADER_USERNAME));
 
             services.Scan(scan => scan
                         .FromAssemblies(typeof(TravixBackendDBContext).Assembly)
@@ -56,9 +58,9 @@ namespace TravixBackend.BookingService.API
                 .AddEnvironmentVariables();
 
             AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
-
+            
             app.UseRouting();
-            //app.UseHeaderPropagation();
+            app.UseHeaderPropagation();
 
             if (env.IsDevelopment())
             {

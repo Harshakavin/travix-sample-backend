@@ -17,8 +17,8 @@ namespace TravixBackend.API.Middleware
 
         public async Task Invoke(HttpContext context)
         {
-            var username = context.Request.Headers["Authorization"].FirstOrDefault();
-            context.Request.Headers.TryAdd("x-custom-username", HttpUtility.HtmlEncode(username));
+            var username = context.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+            context.Request.Headers.TryAdd(Constants.HEADER_USERNAME, HttpUtility.HtmlEncode(username));
             await _next(context);
         }
     }

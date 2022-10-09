@@ -36,6 +36,8 @@ namespace TravixBackend.API
                     .SetPreflightMaxAge(TimeSpan.FromHours(1));
                 });
             });
+            services.AddHeaderPropagation(config => config.Headers.Add(Constants.HEADER_USERNAME));
+
             services.AddMvc()
                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
                .ConfigureApiBehaviorOptions(options =>
@@ -74,6 +76,7 @@ namespace TravixBackend.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseHeaderPropagation();
             app.UsePathBase("/api");
             app.UseCors();
 

@@ -23,6 +23,8 @@ namespace TravixBackend.BookingService.Domain.Data.EntityConfigurations
             builder.Property(p => p.Group).HasColumnName("group");
             builder.Property(b => b.Status).HasColumnName("status");
             builder.Property(b => b.ArrivalTime).HasColumnName("arrivalTime");
+            builder.Property(b => b.Date).HasColumnName("date");
+            builder.Property(b => b.Cost).HasColumnName("cost");
             builder.Property(b => b.CreatedDate).HasColumnName("created_date");
             builder.Property(b => b.UpdatedDate).HasColumnName("updated_date");
             builder.HasOne(s => s.User).WithMany(s => s.Bookings).HasForeignKey(s => s.UserId);

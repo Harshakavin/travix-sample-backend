@@ -50,7 +50,8 @@ namespace TravixBackend.API.Controllers
         [HttpPost]
         public async Task<ObjectResult> Add([FromBody] BookingDto bookingDto)
         {
-            var response = await _bookingServiceClient.AddBookingsAsync(_mapper.Map<BookingDto,BookingRequest >(bookingDto));
+            var bookingRequest = _mapper.Map<BookingDto, BookingRequest>(bookingDto);
+            var response = await _bookingServiceClient.AddBookingsAsync(bookingRequest);
 
             var bookingList = new List<BookingDto>();
             response.Bookings.ToList().ForEach(b =>

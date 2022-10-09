@@ -15,6 +15,9 @@ namespace TravixBackend.API.Dtos.V1
         public string Group { get; set; }
         public string Status { get; set; }
         public string ArrivalTime { get; set; }
+        public string Date { get; set; }
+        public string CreatedDate { get; set; }
         public string UpdatedDate { get; set; }
+        public string Cost { get; set; }
     }
 }

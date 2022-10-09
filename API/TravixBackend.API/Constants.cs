@@ -1,4 +1,4 @@
-﻿namespace TravixBackend.BookingService.Domain
+﻿namespace TravixBackend.API
 {
     public static class Constants
     {
