@@ -14,6 +14,7 @@ namespace TravixBackend.BookingService.Domain.Data.EntityConfigurations
             builder.Property(p => p.UserName).HasColumnName("username");
             builder.Property(p => p.Password).HasColumnName("password");
             builder.Property(b => b.CreatedDate).HasColumnName("created_date");
+            builder.HasMany(s => s.Bookings).WithOne(s => s.User).HasForeignKey(s => s.UserId);
             builder.HasKey(b => b.Id);
         }
     }

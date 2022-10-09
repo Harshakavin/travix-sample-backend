@@ -7,7 +7,7 @@ namespace TravixBackend.API.Mappers
     {
         public BookingMapper()
         {
-            CreateMap<BookingResponse, Dtos.V1.BookingDto>();
+            CreateMap<BookingRequest, Dtos.V1.BookingDto>().ReverseMap();
         }
     }
 }

@@ -9,13 +9,31 @@ import "google/protobuf/wrappers.proto";
 import "google/protobuf/empty.proto";
 
 service BookingGrpcService {
-    rpc GetBookings(BookingRequest) returns (BookingResponse);
+    rpc GetBookings(GetBookingRequest) returns (BookingResponse);
+    rpc AddBookings(BookingRequest) returns (BookingResponse);
 }
 
-message BookingRequest {
-    google.protobuf.Int32Value limit = 1;
+message GetBookingRequest {
+    google.protobuf.Int32Value  limit = 1;
 }
 
 message BookingResponse {
-    google.protobuf.StringValue name = 1;
+   repeated BookingRequest bookings = 1;
 }
+
+message BookingRequest {
+    google.protobuf.StringValue name = 2;
+    google.protobuf.StringValue passportNo = 3;
+    google.protobuf.StringValue flightCode = 4;    
+    google.protobuf.StringValue from = 5;
+    google.protobuf.StringValue to = 6;
+    google.protobuf.StringValue departing = 7;
+    google.protobuf.StringValue seat = 8;
+    google.protobuf.StringValue way = 9;
+    google.protobuf.StringValue group = 10;
+    google.protobuf.BoolValue   status = 11;
+    google.protobuf.StringValue arrivalTime = 12;
+    google.protobuf.Timestamp   updatedDate = 13;
+    google.protobuf.Timestamp   createdDate = 14;
+}
+

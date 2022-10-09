@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using TravixBackend.BookingService.API.Protos;
 using TravixBackend.BookingService.Domain.Dtos;
 
 namespace TravixBackend.BookingService.API.Mappers
@@ -7,7 +8,7 @@ namespace TravixBackend.BookingService.API.Mappers
     {
         public BookingMapper()
         {
-            CreateMap<BookingDto, BookingDto>().ReverseMap();
+            CreateMap<BookingDto, BookingRequest>().ReverseMap();
         }
     }
 }

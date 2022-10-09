@@ -2,7 +2,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using TravixBackend.API.Dtos.V1;
 using TravixBackend.API.Dtos.V1.Response;
 using TravixBackend.API.ExceptionFilters;
 using TravixBackend.BookingService.API.Protos;
@@ -30,16 +33,32 @@ namespace TravixBackend.API.Controllers
         [HttpGet]
         public async Task<ObjectResult> Get([FromQuery] int limit)
         {
-            var response = await _bookingServiceClient.GetBookingsAsync(new BookingRequest
+            var response = await _bookingServiceClient.GetBookingsAsync(new GetBookingRequest
             {
                 Limit = limit
             });
 
-            var validateResponse = _mapper.Map<
-              BookingResponse,
-              Dtos.V1.BookingDto>(response);
+            var bookingList = new List<BookingDto>();
+            response.Bookings.ToList().ForEach(b =>
+            {
+                bookingList.Add(_mapper.Map<BookingRequest, BookingDto>(b));
+            });
 
-            return Ok(new SuccessResponse(validateResponse));
+            return Ok(new SuccessResponse(bookingList));
+        }
+
+        [HttpPost]
+        public async Task<ObjectResult> Add([FromBody] BookingDto bookingDto)
+        {
+            var response = await _bookingServiceClient.AddBookingsAsync(_mapper.Map<BookingDto,BookingRequest >(bookingDto));
+
+            var bookingList = new List<BookingDto>();
+            response.Bookings.ToList().ForEach(b =>
+            {
+                bookingList.Add(_mapper.Map<BookingRequest, BookingDto>(b));
+            });
+
+            return Ok(new SuccessResponse(bookingList));
         }
     }
 }

@@ -21,7 +21,7 @@
     "Docker": {
       "commandName": "Docker",
       "launchBrowser": true,
-      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/healthcheck",
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/v1/healthcheck",
       "environmentVariables": {
         "ASPNETCORE_URLS": "https://+:443;http://+:80",
         "ASPNETCORE_HTTPS_PORT": "44362"

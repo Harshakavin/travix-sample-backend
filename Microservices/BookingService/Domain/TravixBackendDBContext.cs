@@ -6,6 +6,7 @@ namespace TravixBackend.BookingService.Domain
     public class TravixBackendDBContext : DbContext
     {
         public DbSet<Booking> Bookings { get; set; }
+        public DbSet<User> Users { get; set; }
 
         public TravixBackendDBContext(DbContextOptions<TravixBackendDBContext> options) : base(options)
         {
@@ -15,7 +16,7 @@ namespace TravixBackend.BookingService.Domain
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>().HasData(new User[] {
-                new User{UserName="admin",Password="d033e22ae348aeb5660fc2140aec35850c4da997"}
+                new User{Id = 1, UserName="admin",Password="d033e22ae348aeb5660fc2140aec35850c4da997"}
             });
 
             base.OnModelCreating(modelBuilder);
