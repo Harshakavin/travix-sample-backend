@@ -1,0 +1,13 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Microservices/BookingService/API/bin/Debug/net6.0
+/API/TravixBackend.API/obj
+/.vs
+/Microservices/BookingService/Domain.Tests/obj
+/Microservices/BookingService/Domain.Tests/Services/BookingServiceTests/BookingServiceTest.cs
+/Microservices/BookingService/Domain.Tests/bin/Debug/net6.0
+/Microservices/BookingService/Domain/bin/Debug/net6.0
+/Microservices/BookingService/Domain/obj
+/Microservices/BookingService/API/obj

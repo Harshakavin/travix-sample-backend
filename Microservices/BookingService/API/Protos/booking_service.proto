@@ -1,0 +1,21 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "TravixBackend.BookingService.API.Protos";
+
+package protos.bookinggrpcService;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/empty.proto";
+
+service BookingGrpcService {
+    rpc GetBookings(BookingRequest) returns (BookingResponse);
+}
+
+message BookingRequest {
+    google.protobuf.StringValue userId = 1;
+}
+
+message BookingResponse {
+    google.protobuf.StringValue name = 1;
+}

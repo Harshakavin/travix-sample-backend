@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <UserSecretsId>6ecaa7c8-86e6-49fc-8b2b-9777ae37c76e</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..\..</DockerfileContext>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\TravixBackend.BookingService.Domain.csproj" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AutoMapper" Version="12.0.0" />
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+		<PackageReference Include="Google.Protobuf" Version="3.21.7" />
+		<PackageReference Include="Grpc.AspNetCore.Server" Version="2.49.0" />
+		<PackageReference Include="Grpc.Core.Api" Version="2.49.0" />
+		<PackageReference Include="Grpc.Net.Common" Version="2.49.0" />
+		<PackageReference Include="Grpc.Tools" Version="2.49.1">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="6.0.9" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.9">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+		<PackageReference Include="protobuf-net" Version="3.1.22" />
+		<PackageReference Include="Scrutor" Version="4.2.0" />
+		<PackageReference Include="Serilog" Version="2.12.0" />
+		<PackageReference Include="Serilog.AspNetCore" Version="6.0.1" />
+	</ItemGroup>
+	
+	<ItemGroup>
+		<Protobuf Include="Protos\booking_service.proto" GrpcServices="Server" />
+	</ItemGroup>
+</Project>

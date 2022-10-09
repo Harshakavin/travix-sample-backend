@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32126.317
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{82D0A282-D37C-46CC-88C8-2E4C9E5DE4D7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microservices", "Microservices", "{2DAD0814-4C08-4F33-9B01-2F7BE14B73E0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravixBackend.API", "API\TravixBackend.API\TravixBackend.API.csproj", "{3EF11111-C757-45E0-8C81-2CEC40AF80B9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BookingService", "BookingService", "{9CC9E804-1E8A-442B-BDA5-2055F62E5D81}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravixBackend.BookingService.API", "Microservices\BookingService\API\TravixBackend.BookingService.API.csproj", "{852AC8A0-BDC2-4D7F-AEFB-D8558D00D301}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravixBackend.BookingService.Domain", "Microservices\BookingService\Domain\TravixBackend.BookingService.Domain.csproj", "{178A50F7-7890-4886-BE9C-3702416D455C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravixBackend.BookingService.Domain.Tests", "Microservices\BookingService\Domain.Tests\TravixBackend.BookingService.Domain.Tests.csproj", "{CCE2BDDF-D396-49F2-A1EA-61548F76B6D7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3EF11111-C757-45E0-8C81-2CEC40AF80B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EF11111-C757-45E0-8C81-2CEC40AF80B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EF11111-C757-45E0-8C81-2CEC40AF80B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EF11111-C757-45E0-8C81-2CEC40AF80B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{852AC8A0-BDC2-4D7F-AEFB-D8558D00D301}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{852AC8A0-BDC2-4D7F-AEFB-D8558D00D301}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{852AC8A0-BDC2-4D7F-AEFB-D8558D00D301}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{852AC8A0-BDC2-4D7F-AEFB-D8558D00D301}.Release|Any CPU.Build.0 = Release|Any CPU
+		{178A50F7-7890-4886-BE9C-3702416D455C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{178A50F7-7890-4886-BE9C-3702416D455C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{178A50F7-7890-4886-BE9C-3702416D455C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{178A50F7-7890-4886-BE9C-3702416D455C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCE2BDDF-D396-49F2-A1EA-61548F76B6D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCE2BDDF-D396-49F2-A1EA-61548F76B6D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCE2BDDF-D396-49F2-A1EA-61548F76B6D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCE2BDDF-D396-49F2-A1EA-61548F76B6D7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3EF11111-C757-45E0-8C81-2CEC40AF80B9} = {82D0A282-D37C-46CC-88C8-2E4C9E5DE4D7}
+		{9CC9E804-1E8A-442B-BDA5-2055F62E5D81} = {2DAD0814-4C08-4F33-9B01-2F7BE14B73E0}
+		{852AC8A0-BDC2-4D7F-AEFB-D8558D00D301} = {9CC9E804-1E8A-442B-BDA5-2055F62E5D81}
+		{178A50F7-7890-4886-BE9C-3702416D455C} = {9CC9E804-1E8A-442B-BDA5-2055F62E5D81}
+		{CCE2BDDF-D396-49F2-A1EA-61548F76B6D7} = {9CC9E804-1E8A-442B-BDA5-2055F62E5D81}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {298D731B-13A2-48F6-AE9A-C41347CC8838}
+	EndGlobalSection
+EndGlobal
