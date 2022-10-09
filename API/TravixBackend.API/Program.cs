@@ -45,7 +45,7 @@ namespace TravixBackend.API
                 {
                     webBuilder.ConfigureKestrel((ctx, options) =>
                     {
-                        options.ListenAnyIP(3000);
+                        options.ListenAnyIP(3003);
                     });
                     webBuilder.UseStartup<Startup>();
                 });

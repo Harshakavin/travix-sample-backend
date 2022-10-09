@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravixBackend.BookingServic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravixBackend.BookingService.Domain.Tests", "Microservices\BookingService\Domain.Tests\TravixBackend.BookingService.Domain.Tests.csproj", "{CCE2BDDF-D396-49F2-A1EA-61548F76B6D7}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{F695584D-DE37-41FE-A983-414D4603CBF2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{CCE2BDDF-D396-49F2-A1EA-61548F76B6D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCE2BDDF-D396-49F2-A1EA-61548F76B6D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCE2BDDF-D396-49F2-A1EA-61548F76B6D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F695584D-DE37-41FE-A983-414D4603CBF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F695584D-DE37-41FE-A983-414D4603CBF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F695584D-DE37-41FE-A983-414D4603CBF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F695584D-DE37-41FE-A983-414D4603CBF2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
