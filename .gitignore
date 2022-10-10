@@ -6,7 +6,6 @@
 /API/TravixBackend.API/obj
 /.vs
 /Microservices/BookingService/Domain.Tests/obj
-/Microservices/BookingService/Domain.Tests/Services/BookingServiceTests/BookingServiceTest.cs
 /Microservices/BookingService/Domain.Tests/bin
 /Microservices/BookingService/Domain/bin
 /Microservices/BookingService/Domain/obj
