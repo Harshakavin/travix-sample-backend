@@ -11,6 +11,7 @@ namespace TravixBackend.BookingService.Domain.Data.EntityConfigurations
             builder.ToTable("bookings");
             builder.Property(p => p.Id).ValueGeneratedOnAdd();
             builder.Property(p => p.Id).HasColumnName("id");
+            builder.Property(p => p.UserId).HasColumnName("user_id");
             builder.Property(p => p.Name).HasColumnName("name");
             builder.Property(p => p.PassportNo).HasColumnName("passportNo");
             builder.Property(p => p.FlightCode).HasColumnName("flightCode");
@@ -27,7 +28,7 @@ namespace TravixBackend.BookingService.Domain.Data.EntityConfigurations
             builder.Property(b => b.Cost).HasColumnName("cost");
             builder.Property(b => b.CreatedDate).HasColumnName("created_date");
             builder.Property(b => b.UpdatedDate).HasColumnName("updated_date");
-            builder.HasOne(s => s.User).WithMany(s => s.Bookings).HasForeignKey(s => s.UserId);
+            //builder.HasOne(s => s.User).WithMany(s => s.Bookings).HasForeignKey(s => s.UserId);
             builder.HasKey(b => b.Id);
         }
     }

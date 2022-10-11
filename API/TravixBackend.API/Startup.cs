@@ -37,6 +37,7 @@ namespace TravixBackend.API
                 });
             });
             services.AddHeaderPropagation(config => config.Headers.Add(Constants.HEADER_USERNAME));
+            services.AddHeaderPropagation(config => config.Headers.Add(Constants.HEADER_USERID));
 
             services.AddMvc()
                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
@@ -58,7 +59,7 @@ namespace TravixBackend.API
                 );
             });
             services.AddOptions();
-            services.AddAutoMapper(typeof(Startup).Assembly, typeof(BookingMapper).Assembly);
+            services.AddAutoMapper(typeof(Startup).Assembly, typeof(BookingMapper).Assembly, typeof(UserMapper).Assembly);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

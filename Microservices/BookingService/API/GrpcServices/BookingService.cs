@@ -30,8 +30,8 @@ namespace TravixBackend.BookingService.API.GrpcServices
         {
             try
             {
-                var username = GetUsernameFromHeader(context);
-                var result = await _bookingService.GetBookingAsync(username,(int)request.Limit);
+                var userId = GetUserIdFromHeader(context);
+                var result = await _bookingService.GetBookingAsync(userId, (int)request.Limit);
 
                 return GenarateBookingResponse(result);
             }
@@ -53,9 +53,9 @@ namespace TravixBackend.BookingService.API.GrpcServices
         {
             try
             {
-                var username = GetUsernameFromHeader(context);
+                var userId = GetUserIdFromHeader(context);
                 var bookingDto = _mapper.Map<BookingRequest, BookingDto>(request);
-                var result = await _bookingService.AddBookingAsync(username, bookingDto);
+                var result = await _bookingService.AddBookingAsync(userId, bookingDto);
 
                 return GenarateBookingResponse(result);
             }
@@ -83,7 +83,7 @@ namespace TravixBackend.BookingService.API.GrpcServices
             return response;
         }
 
-        private static string GetUsernameFromHeader(ServerCallContext context) =>
-                        System.Web.HttpUtility.HtmlDecode(context.RequestHeaders.SingleOrDefault(header => header.Key == "x-custom-username")?.Value);
+        private static string GetUserIdFromHeader(ServerCallContext context) =>
+                        System.Web.HttpUtility.HtmlDecode(context.RequestHeaders.SingleOrDefault(header => header.Key == "x-custom-userid")?.Value);
     }
 }

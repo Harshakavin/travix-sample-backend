@@ -12,8 +12,8 @@ using TravixBackend.BookingService.Domain;
 namespace TravixBackend.BookingService.Domain.Migrations
 {
     [DbContext(typeof(TravixBackendDBContext))]
-    [Migration("20221009163700_added_new_coloums")]
-    partial class added_new_coloums
+    [Migration("20221011143741_init_tables")]
+    partial class init_tables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -98,60 +98,7 @@ namespace TravixBackend.BookingService.Domain.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
-
                     b.ToTable("bookings", (string)null);
-                });
-
-            modelBuilder.Entity("TravixBackend.BookingService.Domain.Data.Entities.User", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .HasColumnName("id");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_date");
-
-                    b.Property<string>("Password")
-                        .HasColumnType("text")
-                        .HasColumnName("password");
-
-                    b.Property<string>("UserName")
-                        .HasColumnType("text")
-                        .HasColumnName("username");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("user", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1L,
-                            CreatedDate = new DateTime(2022, 10, 9, 16, 36, 59, 885, DateTimeKind.Utc).AddTicks(96),
-                            Password = "d033e22ae348aeb5660fc2140aec35850c4da997",
-                            UserName = "admin"
-                        });
-                });
-
-            modelBuilder.Entity("TravixBackend.BookingService.Domain.Data.Entities.Booking", b =>
-                {
-                    b.HasOne("TravixBackend.BookingService.Domain.Data.Entities.User", "User")
-                        .WithMany("Bookings")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("TravixBackend.BookingService.Domain.Data.Entities.User", b =>
-                {
-                    b.Navigation("Bookings");
                 });
 #pragma warning restore 612, 618
         }

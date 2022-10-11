@@ -23,6 +23,5 @@ namespace TravixBackend.BookingService.Domain.Data.Entities
         public string Cost { get; set; }
         public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
         public DateTime UpdatedDate { get; set; } = DateTime.UtcNow;
-        public virtual User User { get; set; }
     }
 }

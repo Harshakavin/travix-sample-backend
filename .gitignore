@@ -13,3 +13,11 @@
 /API/TravixBackend.API/bin
 /bin/Debug
 /obj
+/Microservices/UserService/API/bin/Debug/net6.0
+/Microservices/UserService/API/GrpcServices/UserService.cs
+/Microservices/UserService/API/.vs
+/Microservices/UserService/API/obj
+/Microservices/UserService/Domain/bin/Debug/net6.0
+/Microservices/UserService/Domain/obj
+/Microservices/UserService/Domain.Tests/bin/Debug/net6.0
+/Microservices/UserService/Domain.Tests/obj

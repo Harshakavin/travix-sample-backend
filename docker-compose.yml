@@ -1,5 +1,14 @@
 version: "3.4"
 services:
+  travix.userservice:
+    image: ${DOCKER_REGISTRY-}usermicroservice
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    build:
+      context: .
+      dockerfile: Microservices/UserService/API/Dockerfile
+    ports:
+      - "5010:5010"
   travix.bookingservice:
     image: ${DOCKER_REGISTRY-}bookingmicroservice
     environment:
@@ -21,3 +30,4 @@ services:
       - "3003:3003"
     links:
       - "travix.bookingservice"
+      - "travix.userservice"

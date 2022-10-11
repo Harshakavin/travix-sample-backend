@@ -21,16 +21,16 @@ namespace TravixBackend.BookingService.Domain.Services
             _travixBackendDBContext = (TravixBackendDBContext)provider.GetService(typeof(TravixBackendDBContext));
         }
 
-        public async Task<List<BookingDto>> GetBookingAsync(string username, int limit)
+        public async Task<List<BookingDto>> GetBookingAsync(string userId, int limit)
         {
-            var user = ValidUserName(username);
-            if (user == null)
+            if (userId == null)
             {
                 throw new UnauthorizedAccessException();
             }
 
             var defaultSize = 1000;
-            var bookings = await _travixBackendDBContext.Bookings.Where(b => b.UserId == user.Id).Take(limit != -1 ? limit: defaultSize).ToListAsync();
+            var userIdLong = Int64.Parse(userId);
+            var bookings = await _travixBackendDBContext.Bookings.Where(b => b.UserId == userIdLong).Take(limit > 0 ? limit : defaultSize).ToListAsync();
             var bookingsData = new List<BookingDto>();
 
             bookings.ForEach(b => bookingsData.Add(new BookingDto
@@ -56,17 +56,15 @@ namespace TravixBackend.BookingService.Domain.Services
             return bookingsData;
         }
 
-        public async Task<List<BookingDto>> AddBookingAsync(string username, BookingDto booking)
+        public async Task<List<BookingDto>> AddBookingAsync(string userId, BookingDto booking)
         {
-            var user = ValidUserName(username);
-            if (user == null)
+            if (userId == null)
             {
                 throw new UnauthorizedAccessException();
             }
 
             await _travixBackendDBContext.Bookings.AddAsync(new Booking
             {
-                UserId = user.Id,
                 Name = booking.Name,
                 FlightCode = booking.FlightCode,
                 ArrivalTime = booking.ArrivalTime,
@@ -80,15 +78,11 @@ namespace TravixBackend.BookingService.Domain.Services
                 Way = booking.Way,
                 Cost = booking.Cost,
                 Date = booking.Date,
+                UserId = Int64.Parse(userId)
             });
             _travixBackendDBContext.SaveChanges();
 
-            return await GetBookingAsync(username, -1);
-        }
-
-        private User ValidUserName(string username)
-        {
-            return username == null ?  null : _travixBackendDBContext.Users.FirstOrDefault(u => u.UserName == username);
+            return await GetBookingAsync(userId, -1);
         }
     }
 }

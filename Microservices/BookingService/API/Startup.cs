@@ -36,6 +36,7 @@ namespace TravixBackend.BookingService.API
             //Plugging automapper
             services.AddAutoMapper(typeof(Startup).Assembly, typeof(BookingMapper).Assembly);
             services.AddHeaderPropagation(config => config.Headers.Add(Constants.HEADER_USERNAME));
+            services.AddHeaderPropagation(config => config.Headers.Add(Constants.HEADER_USERID));
 
             services.Scan(scan => scan
                         .FromAssemblies(typeof(TravixBackendDBContext).Assembly)

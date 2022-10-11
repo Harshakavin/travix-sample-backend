@@ -1,0 +1,152 @@
+{
+	"info": {
+		"_postman_id": "7bba172f-8566-47cc-b3f3-0140b3715501",
+		"name": "Travix",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1721780"
+	},
+	"item": [
+		{
+			"name": "GetBookings",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNyc2Etc2hhMjU2IiwidHlwIjoiSldUIn0.eyJpc3MiOiJUcmF2aXgiLCJmaXJzdE5hbWUiOiJoYXJzaGEiLCJsYXN0TmFtZSI6IkthdmluZGEiLCJ1c2VyTmFtZSI6ImhhcnNoYUBnbWFpbC5jb20iLCJ1c2VySWQiOiIxIiwicGhvbmUiOiIiLCJleHAiOi0yMTQ3NDgzNjQ4LCJpYXQiOi0yMTQ3NDgzNjQ4fQ.I8DUvzrXt_JdyL6hudJ6c61HrrfIDJ-NykDLVDYgaMdlyNNB-fWa8-ikzytrk_uBdVlTs_QIHbDYglKjz-UNHcuyGABDluM3_TLx9R-vEy351lJSErKMi8o2u98-7A9uiWRrqtT0EW3bpbupnJ9IVJNFNuW_SMdZJo8CHiWB4wySlF3_rnnVTWQ9nB6drh-HXbZZV2jLpUc2McH2-d8NP_VpbxsV1-rxiJw1vNH7P_Ng8zWtNIrIVFao7V1K3k_8OPQgB-tJlzVQiNqrnv87J0Ppctv9nYvEQhbYAKiS9TAfQBSD5nSshG6wfELMYMtD7Y_qKj_1twOkxYhdeR0y3w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer admin",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3003/v1/bookings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"v1",
+						"bookings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddBooking",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNyc2Etc2hhMjU2IiwidHlwIjoiSldUIn0.eyJpc3MiOiJUcmF2aXgiLCJmaXJzdE5hbWUiOiJoYXJzaGEiLCJsYXN0TmFtZSI6IkthdmluZGEiLCJ1c2VyTmFtZSI6ImhhcnNoYUBnbWFpbC5jb20iLCJ1c2VySWQiOiIxIiwicGhvbmUiOiIiLCJleHAiOi0yMTQ3NDgzNjQ4LCJpYXQiOi0yMTQ3NDgzNjQ4fQ.I8DUvzrXt_JdyL6hudJ6c61HrrfIDJ-NykDLVDYgaMdlyNNB-fWa8-ikzytrk_uBdVlTs_QIHbDYglKjz-UNHcuyGABDluM3_TLx9R-vEy351lJSErKMi8o2u98-7A9uiWRrqtT0EW3bpbupnJ9IVJNFNuW_SMdZJo8CHiWB4wySlF3_rnnVTWQ9nB6drh-HXbZZV2jLpUc2McH2-d8NP_VpbxsV1-rxiJw1vNH7P_Ng8zWtNIrIVFao7V1K3k_8OPQgB-tJlzVQiNqrnv87J0Ppctv9nYvEQhbYAKiS9TAfQBSD5nSshG6wfELMYMtD7Y_qKj_1twOkxYhdeR0y3w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 6,\r\n    \"from\": \"Netherland\",\r\n    \"to\": \"USA\",\r\n    \"date\": \"2022-10-08T18:11:22.668Z\",\r\n    \"name\": \"adsasd\",\r\n    \"code\": \"LH 727\",\r\n    \"departing\": \"10:00AM\",\r\n    \"bording\": \"09:20 AM\",\r\n    \"cost\": \"200USD\",\r\n    \"way\": \"ONE-WAY\",\r\n    \"group\": \"Airways\",\r\n    \"passportNo\": \"asdasd\",\r\n    \"seat\": \"36\",\r\n    \"status\": \"Open\",\r\n    \"flightCode\": \"LH 727\",\r\n    \"arrivalTime\": \"09:20 AM\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/v1/bookings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"v1",
+						"bookings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SignIn",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userName\" : \"harsha@gmail.com\",\r\n    \"password\" : \"Intel@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/v1/user/signin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"v1",
+						"user",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SignUp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"harsha\",\r\n    \"lastName\": \"Kavinda\",\r\n    \"phone\": \"0779299590\",\r\n    \"userName\" : \"harsha\",\r\n    \"password\" : \"Intel@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/v1/user/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"v1",
+						"user",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

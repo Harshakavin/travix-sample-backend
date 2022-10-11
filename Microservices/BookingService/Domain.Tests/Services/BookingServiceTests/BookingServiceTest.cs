@@ -58,18 +58,14 @@ namespace TravixBackend.BookingService.Domain.Tests.Services.BookingServiceTests
                 Way = "ONE-WAY",
                 Cost = "200USD",
                 Date = "200USD",
-                User = new User
-                {
-                    Id = 1,
-                    UserName = "Harsha",
-                }
+                UserId = 1
             };
             dbContext.Bookings.Add(booking);
             dbContext.SaveChanges();
 
             var bookingService = new TravixBackend.BookingService.Domain.Services.BookingService(serviceProvider.Object);
 
-            var bookings = await bookingService.GetBookingAsync("Harsha", 100);
+            var bookings = await bookingService.GetBookingAsync("1", 100);
 
             Assert.Equal(booking.Name, bookings.First().Name);
             Assert.Equal(booking.FlightCode, bookings.First().FlightCode);
@@ -95,13 +91,6 @@ namespace TravixBackend.BookingService.Domain.Tests.Services.BookingServiceTests
 
             serviceProvider.Setup(x => x.GetService(typeof(TravixBackendDBContext))).Returns(dbContext);
             serviceProvider.Setup(x => x.GetService(typeof(ILogger<TravixBackend.BookingService.Domain.Services.BookingService>))).Returns(mockLogger.Object);
-            var user = new User
-            {
-                Id = 1,
-                UserName = "Harsha",
-            };
-            dbContext.Users.Add(user);
-            dbContext.SaveChanges();
 
             var booking = new BookingDto
             {
@@ -123,7 +112,7 @@ namespace TravixBackend.BookingService.Domain.Tests.Services.BookingServiceTests
 
             var bookingService = new TravixBackend.BookingService.Domain.Services.BookingService(serviceProvider.Object);
 
-            var bookings = await bookingService.AddBookingAsync("Harsha", booking);
+            var bookings = await bookingService.AddBookingAsync("1", booking);
 
             Assert.Equal(booking.Name, bookings.First().Name);
             Assert.Equal(booking.FlightCode, bookings.First().FlightCode);
